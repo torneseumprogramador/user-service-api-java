@@ -2,16 +2,16 @@ package com.java.microservicos.UserServiceAPI.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class HomeController {
     @GetMapping("/")
-    public String home() {
-        return "API UserService está rodando!";
-    }
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello, world!";
+    public ResponseEntity<Map<String, String>> home() {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Bem vindo a API UserService!");
+        return ResponseEntity.ok(response);
     }
 }
