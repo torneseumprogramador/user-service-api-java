@@ -29,4 +29,9 @@ public class UserController {
     public User create(@RequestBody User user) {
         return service.save(user);
     }
+
+    @GetMapping("/by-ids")
+    public List<User> getUsersByIds(@RequestParam List<Long> ids) {
+        return service.findAllByIds(ids);
+    }
 }
