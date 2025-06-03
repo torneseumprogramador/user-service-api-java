@@ -1,7 +1,13 @@
 package com.java.microservicos.UserServiceAPI.dtos;
 
+import jakarta.validation.constraints.*;
+
 public class UserDTO {
+    @NotBlank(message = "O nome é obrigatório")
     private String name;
+
+    @NotBlank(message = "O email é obrigatório") 
+    @Email(message = "Email inválido")
     private String email;
 
     public String getName() {
