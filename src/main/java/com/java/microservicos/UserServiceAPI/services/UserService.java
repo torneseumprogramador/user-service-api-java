@@ -37,9 +37,10 @@ public class UserService {
         if (!userDTO.getEmail().matches(emailRegex)) {
             throw new UserValidationError("O email está em formato inválido.");
         }
-        // Verifica se o email já existe
-        if (repository.findByEmail(userDTO.getEmail()) != null) {
-            throw new UserValidationError("O email já está cadastrado.");
+        // Se o email já existe, retorna o usuário existente
+        User existingUser = repository.findByEmail(userDTO.getEmail());
+        if (existingUser != null) {
+            return existingUser;
         }
         User user = new User();
         user.setName(userDTO.getName());

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "ab94c442-82e2-4d70-b8a5-7327e207608b",
 		"name": "UserServiceAPI",
-		"description": "# API de Usuários\n\nEsta coleção contém endpoints para gerenciamento de usuários, permitindo operações CRUD (Create, Read, Update, Delete).\n\n## Endpoints disponíveis\n\n### GET /users\nRetorna a lista de todos os usuários cadastrados\n\n### GET /users/{id} \nRetorna os dados de um usuário específico pelo ID\n\n### GET /users?ids=1,2,3\nRetorna os dados de múltiplos usuários pelos IDs\n\n### POST /users\nCria um novo usuário\n\nExemplo de payload:\n```json\n{\n    \"name\": \"Nome do usuário\",\n    \"email\": \"email@exemplo.com\"\n}\n```\n\n## Testes\nCada endpoint possui testes básicos para validar o código de status da resposta.",
+		"description": "# 🚀 Começando aqui\n\nEsta coleção contém endpoints para operações CRUD (GET, POST, PUT, DELETE) da API de usuários.\n\n## 🔖 **Como usar esta coleção**\n\n#### **Passo 1: Enviar requisições**\n\nA API REST permite realizar operações CRUD usando os métodos HTTP POST, GET, PUT e DELETE.\n\nEsta coleção contém todos estes tipos de requisições. Abra cada uma e clique em \"Send\" para ver o resultado.\n\n#### **Passo 2: Visualizar respostas**\n\nObserve a aba de resposta para ver o código de status (200 OK), tempo de resposta e tamanho.\n\n#### **Passo 3: Enviar dados no Body**\n\nAtualize ou adicione novos dados no \"Body\" na requisição POST. Normalmente, dados no Body também são usados em requisições PUT.\n\n```\n{\n    \"name\": \"Seu nome aqui\",\n    \"email\": \"seu@email.com\"\n}\n\n ```\n\n#### **Passo 4: Atualizar a variável**\n\nVariáveis permitem armazenar e reutilizar valores no Postman. A variável `base_url` está configurada com o endpoint da API.\n\n#### **Passo 5: Testes**\n\nOs testes ajudam a confirmar que a API está funcionando como esperado. Você pode escrever scripts de teste em JavaScript e ver o resultado na aba \"Test Results\".\n\n## 💪 Dicas\n\n- Use pastas para agrupar requisições relacionadas e organizar a coleção\n- Adicione mais scripts para verificar se a API funciona conforme esperado\n\n## 📚 Documentação\n\nEsta é a coleção Postman para a API de usuários construída com Spring Boot e MySQL. A API faz parte de uma arquitetura de microserviços e permite gerenciar usuários através de endpoints REST.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "10550343"
 	},
@@ -35,7 +35,7 @@
 						"users"
 					]
 				},
-				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+				"description": "Esta é uma requisição GET usada para obter dados de todos os usuários. Não possui body, mas retorna a lista completa de usuários cadastrados.\n\nUma resposta bem sucedida terá status `200 OK` e retornará um array JSON com os dados dos usuários."
 			},
 			"response": []
 		},
@@ -68,7 +68,7 @@
 						"1"
 					]
 				},
-				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+				"description": "Esta é uma requisição GET usada para obter dados de um usuário específico pelo ID. O ID é passado na URL.\n\nUma resposta bem sucedida terá status `200 OK` e retornará um objeto JSON com os dados do usuário."
 			},
 			"response": []
 		},
@@ -106,7 +106,7 @@
 						}
 					]
 				},
-				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+				"description": "Esta é uma requisição GET usada para obter dados de múltiplos usuários pelos seus IDs. Os IDs são passados como parâmetros de query na URL, separados por vírgula.\n\nUma resposta bem sucedida terá status `200 OK` e retornará um array JSON com os dados dos usuários solicitados."
 			},
 			"response": []
 		},
@@ -148,7 +148,7 @@
 						"users"
 					]
 				},
-				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+				"description": "Esta é uma requisição POST usada para criar um novo usuário. Os dados são enviados no body da requisição em formato JSON.\n\nUma resposta bem sucedida retornará status `201 Created` e os dados do usuário criado."
 			},
 			"response": []
 		},
@@ -190,7 +190,7 @@
 						"users"
 					]
 				},
-				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+				"description": "Esta é uma requisição POST que demonstra um caso de erro ao tentar criar um usuário com email vazio. O email é um campo obrigatório.\n\nA resposta deve retornar um status de erro 400 Bad Request com uma mensagem explicando o problema."
 			},
 			"response": []
 		}
